@@ -1,0 +1,67 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary float-right m-2"
+ data-bs-toggle="modal" data-bs-target="#exampleModal" 
+ (click)="addClick()"
+ data-backdrop="static" data-keyboard="false"
+ >
+    Add Item
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ModelTitle}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="closeClick()"></button>
+        </div>
+        <div class="modal-body">
+          <app-add-edit-item [item]="this.item" *ngIf="this.ActivateAddEditItemComp">
+
+          </app-add-edit-item>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                ItemID
+            </th>
+            
+            <th>
+                ItemName
+            </th>
+            <th>
+                Options
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dataItem of items">
+        <td>{{dataItem.itemID}}</td>
+        <td>{{dataItem.itemName}}</td>
+        <td>
+          <button type="button" class="btn btn-primary float-right m-2"
+          data-bs-toggle="modal" data-bs-target="#exampleModal" 
+          (click)="editClick(dataItem)"
+          >
+             Edit Item
+           </button>
+
+
+            <button type="button" class="btn btn-primary float-right m-2"
+            data-bs-toggle="modal" data-bs-target="#exampleModal" 
+            (click)="deleteClick(dataItem)"
+            >
+              Delete
+            </button>
+        </td>
+    </tr>
+    </tbody>
+  </table>
