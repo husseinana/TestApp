@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8+OVuK8tg8vJYhLBPLTrt8rsW6PNH/NkRjsr8BRDJMY0oMiPecGInla/pDZ/YGY9e5sItYd8I59WEx0me/lW8Q==",
+  "dgSpecHash": "wsEgYHLsHZ9vJMg241Sn3wZifyQDny2Iue0xkRtx6aswhVvrlyNVwKAJyKK1GdBBIhWxsyv0MEaHAcvdcCADmg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hussein\\Desktop\\TestApp\\TesApp\\TesApp\\TesApp.csproj",
+  "projectFilePath": "C:\\Users\\hussein\\Desktop\\TestApp\\TestApp\\API\\TesApp\\TesApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hussein\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\6.0.2\\microsoft.aspnetcore.jsonpatch.6.0.2.nupkg.sha512",
     "C:\\Users\\hussein\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\6.0.2\\microsoft.aspnetcore.mvc.newtonsoftjson.6.0.2.nupkg.sha512",

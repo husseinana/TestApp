@@ -866,11 +866,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hussein\\Desktop\\TestApp\\TesApp\\TesApp\\TesApp.csproj",
+      "projectUniqueName": "C:\\Users\\hussein\\Desktop\\TestApp\\TestApp\\API\\TesApp\\TesApp.csproj",
       "projectName": "TesApp",
-      "projectPath": "C:\\Users\\hussein\\Desktop\\TestApp\\TesApp\\TesApp\\TesApp.csproj",
+      "projectPath": "C:\\Users\\hussein\\Desktop\\TestApp\\TestApp\\API\\TesApp\\TesApp.csproj",
       "packagesPath": "C:\\Users\\hussein\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hussein\\Desktop\\TestApp\\TesApp\\TesApp\\obj\\",
+      "outputPath": "C:\\Users\\hussein\\Desktop\\TestApp\\TestApp\\API\\TesApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

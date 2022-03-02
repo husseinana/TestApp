@@ -9,10 +9,12 @@ import {SharedService} from 'src/app/shared.service';
 export class ShowItemComponent implements OnInit {
 
   items: any[] = [];
+  itemsall: any[] = [];
   ModelTitle:string="Add Item";
   ActivateAddEditItemComp:boolean=false;
   item:any;
-
+  ItemIdFilter:string = "";
+  ItemNameFilter:string="";
 
   constructor(private service:SharedService) { }
   
@@ -21,9 +23,29 @@ export class ShowItemComponent implements OnInit {
   }
 
   refreshItemsList(){
-    this.service.getItemsList().subscribe(data=> this.items = data);
+    this.service.getItemsList().subscribe(
+      data=> 
+        {
+        this.items = data;
+        this.itemsall=data;
+        }
+      );
   }
  
+  FilterFn()
+  {
+    var IdFilter = this.ItemIdFilter;
+    var NameFilter = this.ItemNameFilter;
+
+    this.items = this.itemsall.filter(function (el){
+        return el.itemID.toString().toLowerCase().includes(
+          IdFilter.toString().trim().toLowerCase()
+        )&&
+        el.itemName.toString().toLowerCase().includes(
+          NameFilter.toString().trim().toLowerCase()
+        )
+    });
+  }
 
   addClick()
   {
@@ -59,6 +81,18 @@ export class ShowItemComponent implements OnInit {
    this.ActivateAddEditItemComp = false;
     this.refreshItemsList();
   }
+
+
+  sortResult(prop:any,asc:boolean){
+    this.items = this.itemsall.sort(function(a,b){
+      if(asc){
+          return (a[prop]>b[prop])?1 : ((a[prop]<b[prop]) ?-1 :0);
+      }else{
+        return (b[prop]>a[prop])?1 : ((b[prop]<a[prop]) ?-1 :0);
+      }
+    })
+  }
+
 
   
 }
