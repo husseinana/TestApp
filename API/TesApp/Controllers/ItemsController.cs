@@ -10,10 +10,12 @@ namespace TesApp.Controllers
     public class ItemsController : Controller
     {
         IConfiguration _configuration;
+        private readonly IWebHostEnvironment _env;
 
-        public ItemsController(IConfiguration configuration)
+        public ItemsController(IConfiguration configuration, IWebHostEnvironment env)
         {
             _configuration = configuration;
+            _env = env;
         }
 
         [HttpGet]
@@ -45,7 +47,7 @@ namespace TesApp.Controllers
         public JsonResult Post(Items item)
         {
             string connString = _configuration.GetConnectionString("TestAppConn");
-            string sql = $@"insert into Items values ('{item.ItemName}',{item.Count})";
+            string sql = $@"insert into Items values ('{item.ItemName}',{item.Count},'{item.photopath}')";
             SqlDataReader reader;
             using (SqlConnection conn = new SqlConnection(connString))
             {
@@ -67,7 +69,7 @@ namespace TesApp.Controllers
         public JsonResult Put(Items item)
         {
             string connString = _configuration.GetConnectionString("TestAppConn");
-            string sql = $@"update Items set ItemName = '{item.ItemName}', Count = {item.Count} where ItemID = {item.ItemId}";
+            string sql = $@"update Items set ItemName = '{item.ItemName}', Count = {item.Count}, photopath = '{item.photopath}' where ItemID = {item.ItemId}";
             SqlDataReader reader;
             using (SqlConnection conn = new SqlConnection(connString))
             {
@@ -105,6 +107,32 @@ namespace TesApp.Controllers
             }
 
             return new JsonResult("Item Deleted");
+        }
+
+
+        [Route("SaveFile")]
+        [HttpPost]
+        public JsonResult SaveFile()
+        {
+            try
+            {
+                var httpRequest = Request.Form;
+                var postedFile = httpRequest.Files[0];
+                string filename = postedFile.FileName;
+                var physicalPath = _env.ContentRootPath + "/Photos/" + filename;
+
+                using (var stream = new FileStream(physicalPath, FileMode.Create))
+                {
+                    postedFile.CopyTo(stream);
+                }
+
+                return new JsonResult(filename);
+            }
+            catch (Exception)
+            {
+
+                return new JsonResult("anonymous.png");
+            }
         }
     }
 }

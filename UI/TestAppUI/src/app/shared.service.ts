@@ -50,10 +50,10 @@ export class SharedService {
    
 
     savePhoto(val:any){
-      return this.http.post<any>(this.APIUrl + 'Recipes/SaveFile',val);
+      return this.http.post<any>(this.APIUrl + 'Items/SaveFile',val);
     }
 
-
+  
     getAllItemsList():Observable<any[]>{
       return this.http.get<any>(this.APIUrl + 'Recipes/GetAllItems');
     }

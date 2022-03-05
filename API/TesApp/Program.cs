@@ -12,12 +12,22 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-IFileProvider physicalProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "Photos"));
-builder.Services.AddSingleton<IFileProvider>(physicalProvider);
+//IFileProvider physicalProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "Photos"));
+//builder.Services.AddSingleton<IFileProvider>(physicalProvider);
+
+
+
+
 
 
 var app = builder.Build();
 
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "Photos")),
+    RequestPath = "/Photos"
+});
 
 
 // Configure the HTTP request pipeline.
