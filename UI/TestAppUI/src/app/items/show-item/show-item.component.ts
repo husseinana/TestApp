@@ -12,6 +12,7 @@ export class ShowItemComponent implements OnInit {
   itemsall: any[] = [];
   ModelTitle:string="Add Item";
   ActivateAddEditItemComp:boolean=false;
+  ActivateItemComp:boolean=false;
   item:any;
   ItemIdFilter:string = "";
   ItemNameFilter:string="";
@@ -66,6 +67,13 @@ export class ShowItemComponent implements OnInit {
     this.ActivateAddEditItemComp = true;
   }
 
+editItemsClick(dataitem:any)
+{
+  this.ActivateItemComp = true;
+  this.ActivateAddEditItemComp = true;
+}
+
+
   deleteClick(dataitem:any){
 
  //   this.ActivateAddEditItemComp =false;
@@ -79,9 +87,13 @@ export class ShowItemComponent implements OnInit {
   closeClick()
   {
    this.ActivateAddEditItemComp = false;
+   this.ActivateItemComp =false;
     this.refreshItemsList();
   }
-
+  closeItensClick()
+  {
+    this.ActivateItemComp =false;
+  }
 
   sortResult(prop:any,asc:boolean){
     this.items = this.itemsall.sort(function(a,b){

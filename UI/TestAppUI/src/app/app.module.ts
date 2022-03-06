@@ -12,6 +12,7 @@ import { AddEditRecipeComponent } from './recipes/add-edit-recipe/add-edit-recip
 import {SharedService} from './shared.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { RecipeitemscompComponent } from './items/recipeitemscomp/recipeitemscomp.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {FormsModule,ReactiveFormsModule } from '@angular/forms';
     AddEditItemComponent,
     RecipesComponent,
     ShowRecipeComponent,
-    AddEditRecipeComponent
+    AddEditRecipeComponent,
+    RecipeitemscompComponent
   ],
   imports: [
     BrowserModule,
