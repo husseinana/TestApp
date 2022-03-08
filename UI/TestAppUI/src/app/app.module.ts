@@ -13,6 +13,8 @@ import {SharedService} from './shared.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { RecipeitemscompComponent } from './items/recipeitemscomp/recipeitemscomp.component';
+import { NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
+
 
 @NgModule({
   declarations: [
@@ -24,13 +26,14 @@ import { RecipeitemscompComponent } from './items/recipeitemscomp/recipeitemscom
     ShowRecipeComponent,
     AddEditRecipeComponent,
     RecipeitemscompComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgMultiSelectDropDownModule.forRoot(),
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]

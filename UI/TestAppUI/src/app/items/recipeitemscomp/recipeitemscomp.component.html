@@ -1,1 +1,27 @@
-<p>recipeitemscomp works!</p>
+<!--
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let item of items">
+    <button [class.selected]="item === selectedItem" type="button" (click)="onSelect(item)">
+      <span class="badge">{{item.itemID}}</span>
+      <span class="name">{{item.itemName}}</span>
+    </button>
+  </li>
+</ul>
+-->
+
+
+<div style="width:50%">
+    <form [formGroup]="dropDownForm">
+        <ng-multiselect-dropdown
+        [placeholder]="'Select Your Item'"
+        [settings]="dropdownSettings"
+        [data]="dropdownList"
+        formControlName="myItems"
+        (onSelect)="onItemSelect($event)"
+        (onSelectAll)="onSelectAll($event)"
+        (onDeSelect)="onItemDeSelect($event)"
+        (onDeSelectAll)="onUnSelectAll()">
+    </ng-multiselect-dropdown>
+    </form>
+  </div>
